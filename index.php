@@ -4,16 +4,6 @@
 //  Backend: PHP | Database: PostgreSQL | UI: HTML/CSS/JS
 // ============================================================
 
-session_start();
-
-// --- 1. KONFIGURATSIYA ---
-define('DB_HOST', 'localhost');
-define('DB_PORT', '5432');
-define('DB_NAME', 'uzmovi_db');
-define('DB_USER', 'postgres');
-define('DB_PASS', 'your_password');
-define('SITE_NAME', 'UzMovi');
-define('SITE_URL', 'http://localhost');
 
 // --- 2. MA'LUMOTLAR BAZASIGA ULANISH ---
 function getDB(): PDO {
