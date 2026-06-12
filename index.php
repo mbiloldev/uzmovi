@@ -1,14 +1,7 @@
 <?php
 
 
-// --- 3. YORDAMCHI FUNKSIYALAR ---
-function sanitize(string $input): string {
-    return htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8');
-}
 
-function isLoggedIn(): bool {
-    return isset($_SESSION['user_id']);
-}
 
 function getCurrentUser(): ?array {
     if (!isLoggedIn()) return null;
