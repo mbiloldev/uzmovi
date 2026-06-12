@@ -1,1 +1,203 @@
-gbr
+<svg width="900" height="220" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&amp;family=Inter:wght@400;600;700&amp;display=swap');
+
+      .fira { font-family: 'Fira Code', monospace; }
+      .inter { font-family: 'Inter', sans-serif; }
+
+      /* Fade-in animatsiyalar */
+      .row1 { animation: fadeDown 0.6s ease forwards; animation-delay: 0.1s; opacity: 0; }
+      .row2 { animation: fadeDown 0.6s ease forwards; animation-delay: 0.3s; opacity: 0; }
+      .row3 { animation: fadeDown 0.6s ease forwards; animation-delay: 0.45s; opacity: 0; }
+      .row4 { animation: fadeDown 0.6s ease forwards; animation-delay: 0.55s; opacity: 0; }
+      .row5 { animation: fadeDown 0.6s ease forwards; animation-delay: 0.65s; opacity: 0; }
+      .row6 { animation: fadeDown 0.6s ease forwards; animation-delay: 0.75s; opacity: 0; }
+      .row7 { animation: fadeDown 0.6s ease forwards; animation-delay: 0.9s; opacity: 0; }
+
+      @keyframes fadeDown {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Cursor blink */
+      .cursor { animation: blink 1s step-end infinite; }
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50%       { opacity: 0; }
+      }
+
+      /* Badge dot pulse */
+      .badge-dot { animation: pulse 1.5s ease-in-out infinite; }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; r: 4; }
+        50%       { opacity: 0.5; r: 3; }
+      }
+
+      /* Grid shift */
+      .grid-pat { animation: gridMove 20s linear infinite; }
+      @keyframes gridMove {
+        from { transform: translate(0, 0); }
+        to   { transform: translate(40px, 40px); }
+      }
+
+      /* Glow pulse */
+      .glow { animation: glowPulse 4s ease-in-out infinite; }
+      @keyframes glowPulse {
+        0%, 100% { opacity: 0.4; }
+        50%       { opacity: 0.9; }
+      }
+
+      /* Particle float */
+      .p1 { animation: floatUp 8s linear infinite; }
+      .p2 { animation: floatUp 6s linear infinite 2s; }
+      .p3 { animation: floatUp 9s linear infinite 1s; }
+      .p4 { animation: floatUp 7s linear infinite 3s; }
+      .p5 { animation: floatUp 5s linear infinite 0.5s; }
+
+      @keyframes floatUp {
+        0%   { transform: translateY(0) translateX(0); opacity: 0; }
+        10%  { opacity: 0.7; }
+        90%  { opacity: 0.3; }
+        100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
+      }
+
+      /* Tag hover shimmer */
+      .tag-rect { transition: filter 0.2s; }
+    </style>
+
+    <!-- Grid pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(0,255,120,0.04)" stroke-width="1"/>
+    </pattern>
+
+    <!-- Corner glow -->
+    <radialGradient id="cornerGlow" cx="100%" cy="0%" r="40%">
+      <stop offset="0%" stop-color="#00ff78" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#00ff78" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#0d1f1a"/>
+      <stop offset="50%"  stop-color="#0a1628"/>
+      <stop offset="100%" stop-color="#0d1f1a"/>
+    </linearGradient>
+
+    <clipPath id="bannerClip">
+      <rect width="900" height="220" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <!-- ── Background ── -->
+  <rect width="900" height="220" rx="12" fill="url(#bgGrad)"/>
+  <rect width="900" height="220" rx="12" fill="url(#grid)" clip-path="url(#bannerClip)">
+    <animateTransform attributeName="transform" type="translate" from="0,0" to="40,40" dur="20s" repeatCount="indefinite"/>
+  </rect>
+  <rect width="900" height="220" rx="12" fill="url(#cornerGlow)" class="glow"/>
+  <rect width="900" height="220" rx="12" fill="none" stroke="#1a3a2a" stroke-width="1"/>
+
+  <!-- ── Particles ── -->
+  <circle class="p1" cx="90"  cy="200" r="2" fill="#4ade80"/>
+  <circle class="p2" cx="220" cy="200" r="1.5" fill="#4ade80"/>
+  <circle class="p3" cx="400" cy="200" r="2" fill="#4ade80"/>
+  <circle class="p4" cx="590" cy="200" r="1.5" fill="#4ade80"/>
+  <circle class="p5" cx="730" cy="200" r="2" fill="#4ade80"/>
+
+  <!-- ── Row 1: > hello_world.init() ── -->
+  <g class="row1">
+    <text x="32" y="42" class="fira" font-size="12" fill="#4ade80">&gt; hello_world.init()</text>
+    <rect class="cursor" x="194" y="30" width="2" height="13" fill="#4ade80"/>
+  </g>
+
+  <!-- ── Row 2: Name + Badge ── -->
+  <g class="row2">
+    <text x="32" y="78" class="inter" font-size="30" font-weight="700" fill="#e6edf3">Muhammadbilol</text>
+    <text x="307" y="78" class="inter" font-size="30" font-weight="700" fill="#4ade80">Qo'chqorov</text>
+
+    <!-- Open to work badge -->
+    <rect x="716" y="20" width="152" height="28" rx="14" fill="none" stroke="#4ade80" stroke-width="1.5"/>
+    <circle class="badge-dot" cx="732" cy="34" r="4" fill="#4ade80"/>
+    <text x="742" y="39" class="inter" font-size="12" font-weight="500" fill="#4ade80">Open to work</text>
+  </g>
+
+  <!-- ── Row 3: handle / role ── -->
+  <g class="row3">
+    <text x="32" y="95" class="fira" font-size="11" fill="#8b949e">@mbiloldev · he/him</text>
+    <text x="32" y="112" class="fira" font-size="12" font-weight="600" fill="#4ade80">Full-Stack Developer &amp; IT Mentor</text>
+  </g>
+
+  <!-- ── Row 4: Description ── -->
+  <g class="row4">
+    <text x="32" y="130" class="inter" font-size="12" fill="#c9d1d9">Full-Stack Developer  •  </text>
+    <text x="182" y="130" class="inter" font-size="12" font-weight="600" fill="#fbbf24">Python/Django, JS, C++/C#</text>
+    <text x="380" y="130" class="inter" font-size="12" fill="#c9d1d9">  •  Telegram Bots &amp; Web Apps</text>
+    <text x="32" y="147" class="inter" font-size="12" fill="#c9d1d9">
+      <tspan font-weight="700" fill="#4ade80">IT Mentor</tspan>
+      <tspan> since 2023 — Transforming code into solutions 🚀</tspan>
+    </text>
+  </g>
+
+  <!-- ── Row 5: Tech tags ── -->
+  <g class="row5">
+    <!-- Python -->
+    <rect x="32"  y="156" width="60"  height="20" rx="4" fill="#60a5fa11" stroke="#60a5fa44" stroke-width="1"/>
+    <text x="62"  y="170" class="fira" font-size="10" fill="#60a5fa" text-anchor="middle">Python</text>
+
+    <!-- Django -->
+    <rect x="98"  y="156" width="58"  height="20" rx="4" fill="#4ade8011" stroke="#4ade8044" stroke-width="1"/>
+    <text x="127" y="170" class="fira" font-size="10" fill="#4ade80" text-anchor="middle">Django</text>
+
+    <!-- JavaScript -->
+    <rect x="162" y="156" width="84"  height="20" rx="4" fill="#fbbf2411" stroke="#fbbf2444" stroke-width="1"/>
+    <text x="204" y="170" class="fira" font-size="10" fill="#fbbf24" text-anchor="middle">JavaScript</text>
+
+    <!-- PHP -->
+    <rect x="252" y="156" width="40"  height="20" rx="4" fill="#9ca3af11" stroke="#9ca3af44" stroke-width="1"/>
+    <text x="272" y="170" class="fira" font-size="10" fill="#9ca3af" text-anchor="middle">PHP</text>
+
+    <!-- C# -->
+    <rect x="298" y="156" width="34"  height="20" rx="4" fill="#9ca3af11" stroke="#9ca3af44" stroke-width="1"/>
+    <text x="315" y="170" class="fira" font-size="10" fill="#9ca3af" text-anchor="middle">C#</text>
+
+    <!-- C++ -->
+    <rect x="338" y="156" width="36"  height="20" rx="4" fill="#f8717111" stroke="#f8717144" stroke-width="1"/>
+    <text x="356" y="170" class="fira" font-size="10" fill="#f87171" text-anchor="middle">C++</text>
+
+    <!-- Tailwind CSS -->
+    <rect x="380" y="156" width="88"  height="20" rx="4" fill="#2dd4bf11" stroke="#2dd4bf44" stroke-width="1"/>
+    <text x="424" y="170" class="fira" font-size="10" fill="#2dd4bf" text-anchor="middle">Tailwind CSS</text>
+
+    <!-- Telegram Bots -->
+    <rect x="474" y="156" width="96"  height="20" rx="4" fill="#a78bfa11" stroke="#a78bfa44" stroke-width="1"/>
+    <text x="522" y="170" class="fira" font-size="10" fill="#a78bfa" text-anchor="middle">Telegram Bots</text>
+
+    <!-- HTML5 -->
+    <rect x="576" y="156" width="50"  height="20" rx="4" fill="#fb923c11" stroke="#fb923c44" stroke-width="1"/>
+    <text x="601" y="170" class="fira" font-size="10" fill="#fb923c" text-anchor="middle">HTML5</text>
+  </g>
+
+  <!-- ── Divider ── -->
+  <line x1="32" y1="183" x2="868" y2="183" stroke="#1a3a2a" stroke-width="1" class="row6"/>
+
+  <!-- ── Row 7: Footer ── -->
+  <g class="row7">
+    <!-- Links -->
+    <text x="32"  y="200" class="fira" font-size="11" fill="#8b949e">○  github.com/mbiloldev</text>
+    <text x="210" y="200" class="fira" font-size="11" fill="#8b949e">→  t.me/IT_MENTOR_UZ</text>
+    <text x="378" y="200" class="fira" font-size="11" fill="#8b949e">✉  mblabx@gmail.com</text>
+
+    <!-- Location -->
+    <text x="32"  y="215" class="fira" font-size="11" fill="#8b949e">📍  Uzbekistan, Tashkent</text>
+
+    <!-- Stats: repos olib tashlandi, 2023 + ∞ qoldi -->
+    <text x="720" y="198" class="inter" font-size="20" font-weight="700" fill="#60a5fa">2023</text>
+    <text x="720" y="210" class="fira"  font-size="9"  fill="#3d5a4a">// mentor</text>
+    <text x="720" y="220" class="fira"  font-size="9"  fill="#3d5a4a">// since</text>
+
+    <text x="800" y="198" class="inter" font-size="20" font-weight="700" fill="#a78bfa">∞</text>
+    <text x="790" y="210" class="fira"  font-size="9"  fill="#3d5a4a">// Stack Developer</text>
+    <text x="790" y="220" class="fira"  font-size="9"  fill="#3d5a4a">// UTC +05:00</text>
+  </g>
+
+</svg>
