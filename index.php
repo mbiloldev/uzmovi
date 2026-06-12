@@ -1,20 +1,5 @@
 <?php
-// ============================================================
-//  UZMOVI.TV KLON — Asosiy Kirish Nuqtasi (index.php)
-//  Backend: PHP | Database: PostgreSQL | UI: HTML/CSS/JS
-// ============================================================
 
-
-                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES   => false,
-            ]);
-        } catch (PDOException $e) {
-            die(json_encode(['error' => 'DB ulanishda xato: ' . $e->getMessage()]));
-        }
-    }
-    return $pdo;
-}
 
 // --- 3. YORDAMCHI FUNKSIYALAR ---
 function sanitize(string $input): string {
