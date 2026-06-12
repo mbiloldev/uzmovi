@@ -1,7 +1,46 @@
 <?php
+// ============================================================
+//  UZMOVI.TV KLON — Asosiy Kirish Nuqtasi (index.php)
+//  Backend: PHP | Database: PostgreSQL | UI: HTML/CSS/JS
+// ============================================================
 
+session_start();
 
+// --- 1. KONFIGURATSIYA ---
+define('DB_HOST', 'localhost');
+define('DB_PORT', '5432');
+define('DB_NAME', 'uzmovi_db');
+define('DB_USER', 'postgres');
+define('DB_PASS', 'your_password');
+define('SITE_NAME', 'UzMovi');
+define('SITE_URL', 'http://localhost');
 
+// --- 2. MA'LUMOTLAR BAZASIGA ULANISH ---
+function getDB(): PDO {
+    static $pdo = null;
+    if ($pdo === null) {
+        $dsn = "pgsql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME;
+        try {
+            $pdo = new PDO($dsn, DB_USER, DB_PASS, [
+                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES   => false,
+            ]);
+        } catch (PDOException $e) {
+            die(json_encode(['error' => 'DB ulanishda xato: ' . $e->getMessage()]));
+        }
+    }
+    return $pdo;
+}
+
+// --- 3. YORDAMCHI FUNKSIYALAR ---
+function sanitize(string $input): string {
+    return htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8');
+}
+
+function isLoggedIn(): bool {
+    return isset($_SESSION['user_id']);
+}
 
 function getCurrentUser(): ?array {
     if (!isLoggedIn()) return null;
